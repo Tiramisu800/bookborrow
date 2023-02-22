@@ -1,0 +1,84 @@
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">Add Your Book</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead">Share your amazing book with thousands across the world. Fill our form to get started.</p>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+
+    <% if(infoSubmitObj != '') { %>
+        <div class="col-8 alert alert-success" role="alert">
+            <%= infoSubmitObj %>
+        </div>
+    <% } %>
+
+    <% if(infoErrorsObj != '') { %>
+        <div class="col-8 alert alert-danger" role="alert">
+            <%= infoErrorsObj[0].message %>
+        </div>
+    <% } %>
+
+    <div class="col-8">
+
+        <form action="/submit-book" enctype="multipart/form-data" method="POST">
+
+            <div class="row g-3">
+
+                <div class="col-12">
+                    <label for="name" class="form-label">Book Name</label>
+                    <input type="text" name="name" id="name" class="form-control" required>
+                </div>
+
+                <div class="col-12">
+                    <label for="author" class="form-label">Book Author</label>
+                    <input type="text" name="author" id="author" class="form-control" required>
+                </div>
+
+                <div class="col-12">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="description" id="description" class="form-control" cols="30" rows="4"></textarea>
+                </div>
+
+                <div class="col-12">
+                    <label for="review" class="form-label">Review(your opinion)</label>
+                    <textarea name="review" id="review" class="form-control" cols="30" rows="4"></textarea>
+                </div>
+
+                <div class="col-12">
+                    <label for="oname" class="form-label">Your name</label>
+                    <input type="text" name="oname" id="oname" class="form-control" required>
+                </div>
+
+
+                <div class="col-12">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" name="email" id="email" class="form-control">
+                </div>
+
+                <div class="col-12">
+                    <label for="telegram" class="form-label">Telegram</label>
+                    <input type="text" name="telegram" id="telegram" class="form-control" required>
+                </div>
+
+                <div class="col-12">
+                    <label for="telegram" class="form-label">Status:</label>
+                    <input type="text" name="status" id="status" class="form-control" placeholder="Not Borrowed" required>
+                </div>
+
+
+                <div class="col-12">
+                    <label for="image">Image</label>
+                    <input type="file" class="form-control" name="image" accept="image/*">
+                </div>
+
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Submit Book</button>
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>
